@@ -32,7 +32,6 @@ const TodoList = () => {
           })
         }
         
-        
       </ul>
     </div>
   );
