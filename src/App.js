@@ -1,52 +1,43 @@
-import { useEffect, useState } from "react";
-import { Icon123, IconMinus, IconPlus } from "@tabler/icons-react";
-import Button from "./Button";
+import {useState} from 'react'
 
 function App() {
-  const [count, setCount] = useState(0);
 
-  const [name, setName] = useState("Guest");
+  // let title = ""
 
-  console.log("Render");
+ const [title , setTitle] = useState("abc");
 
-  const greet = () => {
-    console.log(name);
-  };
-
-  useEffect(() => {
-    greet();
-  }, [name]);
+ console.log(title)
 
   return (
-    <div className="h-screen w-screen flex justify-center items-center">
-      <div className="flex gap-4 items-center">
-        {/* Decrement */}
-        <Button
-          onClick={() => {
-            setCount(count - 1);
-          }}
-          icon={<IconMinus />}
-        />
+    <div className="h-screen w-screen flex flex-col items-center p-4">
+      {/* Form */}
+      <div className="w-4/5 flex justify-center">
+        <form>
+          <div className="flex gap-6 ">
+            <input
+             value={title}
+             onChange={(event)=> {
+              setTitle(event.target.value)
+             }}
+              
+            className="border border-gray-400 rounded-md w-[300px]"
+            />
 
-        <Button
-          onClick={() => {
-            setName("Arpita");
-          }}
-          icon={<Icon123 />}
-        />
+            <button className="bg-sky-500 text-white font-medium py-1 px-3 rounded-md">
+              {" "}
+              Add{" "}
+            </button>
+          </div>
+        </form>
+      </div>
 
-        {/* Count */}
-        <div className="h-[100px] w-[100px] border rounded-md flex justify-center items-center text-xl">
-          {count}
-        </div>
-
-        {/* Increment */}
-        <Button
-          onClick={() => {
-            setCount(count + 1);
-          }}
-          icon={<IconPlus />}
-        />
+      {/* List */}
+      <div className="w-4/5 " >
+        <ul className="p-4 " >
+          <li className="" > Item 1 </li>
+          <li> Item 2 </li>
+          <li> Item 3 </li>
+        </ul>
       </div>
     </div>
   );
